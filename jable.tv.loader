@@ -1,0 +1,64 @@
+loader.info = {
+    "scriptInfo": {
+        "host": ["jable.tv"],
+        "name": "",
+        "author": "Loader",
+        "version": 1.0
+    },
+    "features": {
+        "searchUrl": "https://jable.tv/search/$keyword",
+        "tabs": [
+            {
+                "title": "",
+                "icon": "", 
+                "pages": [
+                    {
+                        "title": "",
+                        "url": "",
+                        "style": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "selectors": [
+        {
+            "url": "*",
+            "pageUrl": "/$page/",
+            "container": ".site-content",
+            "section": {
+                "root": ".py-3,.pb-3",
+                "title": ".title-with-more h2",
+                "url": ".title-with-more .more a",
+                "items": {
+                    "root": ".video-img-box",
+                    "cover": ".img-box a img$dataset.src | .img-box a$style.backgroundImage",
+                    "video": ".img-box a img$dataset.preview",
+                    "url": ".img-box a",
+                    "title": ".detail .title a",
+                    "subTitle": ".img-box a .label"
+                }
+            }
+        },
+        {
+            "url": "https://jable.tv/videos/$id",
+            "detailItems": {
+                "root": "",
+                "photo": "",
+                "video": "return this.hlsUrl"
+            },
+            "title": "#site-content > div > div > div:nth-child(1) > section.video-info.pb-3 > div.info-header > div.header-left > h4",
+            "content": "",
+            "relatedTags": "#site-content .tags a",
+            "moreItems": {
+                "root": ".right-sidebar .col-6 .video-img-box",
+                "cover": ".img-box.cover-md a img$dataset.src",
+                "video": ".img-box a img$dataset.preview",
+                "url": ".img-box a",
+                "title": ".detail .title a",
+                "subTitle": ".img-box a .label"
+            }
+        }
+    ]
+}
+
